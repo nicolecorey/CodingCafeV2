@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "The Coding Cafe";
+}
+
+<div class="p-4 mb-3 shadow" style="background-color:cornflowerblue;border-radius:40px;">
+    <h1>The Coding Cafe <i class="fa fa-code" aria-hidden="true" style="font-size:48px"></i></h1>
+    <p class="lead">
+        Our unique cafe embraces the brains of programmers. With areas to work, and coffee to keep you going.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Our Unique Design</h2>
+        <p>
+            Our cafe offers the perfect ambiance for your programming needs. We offer a bar style setup along the wall with outlets at your fingertips.
+            Never go without a full battery when you're here!<br />
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <h2>Delicious Creations</h2>
+        <p>
+            Our coffee is perfectly crafted with your interests in mind. With creative names like "CSS Cold Brew" and our signature "JavaScript Java",
+            you'll feel right at home sipping on your coffee.
+        </p>
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" id="FlavorDropDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Featured Items
+
+            </button>
+            <div class="dropdown-menu" aria-labelledby="FlavorDropDown">
+                <a class="dropdown-item text-primary">JavaScript Java</a>
+                <a class="dropdown-item">CSS Caramel Latte</a>
+                <a class="dropdown-item">HTML Hot Cocoa</a>
+                <a class="dropdown-item">Python Pastries</a>
+                <a class="dropdown-item">Bootstrap Brulee</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <img src="~/images/Cafe.jpg" alt="Bar style tables" asp-append-version="true"
+         class="float-sm-start img-fluid col-sm-6  shadow rounded-sm" />
+    <img src="~/images/Coding-w-Coffee.jpg" alt="Computer with coffee mug" asp-append-version="true"
+         class="float-sm-start img-fluid col-sm-6  shadow rounded-sm" />
+</div>

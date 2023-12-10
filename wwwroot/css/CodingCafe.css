@@ -1,0 +1,42 @@
+﻿﻿body {
+    font-family: 'Courier', 'monospace';
+    background-color: lightsteelblue;
+    color: black;
+}
+
+h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: aliceblue;
+    color: black;
+     
+}
+
+p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkslategray;
+}
+a:hover {
+    font-size: 1.2em;
+    text-shadow: 1px 1px 10px darkslateblue;
+    border-radius: 10px;
+    text-decoration: blink;
+    color: darkslateblue;
+}
+
+a {
+    color: darkslateblue;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: cornflowerblue;
+    text-decoration: underline;
+    border-radius: 10px;
+}
+
+.nav-link {
+    color: darkslateblue !important;
+}
+
