@@ -11,8 +11,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CodingCafeV2.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
+        
         private readonly CafeContext _context;
 
         public CustomersController(CafeContext context)
@@ -21,7 +23,9 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Customers
-        [Authorize(Roles = "Administrator,Manager,User")]
+        //  [Authorize(Roles = "Administrator,Manager,User")]
+
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             var customers = from m in _context.Customers.Include(a => a.Menu)
@@ -66,7 +70,9 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Customers/Details/5
-        [Authorize(Roles = "Administrator,Manager,User")]
+        //  [Authorize(Roles = "Administrator,Manager,User")]
+
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Customers == null)
@@ -87,7 +93,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Customers/Create
-        [Authorize(Roles = "Administrator,Manager")]
+       // [Authorize(Roles = "Administrator,Manager")]
         public IActionResult Create()
         {
             ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "Item");
@@ -113,7 +119,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Customers/Edit/5
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Customers == null)
@@ -135,7 +141,7 @@ namespace CodingCafeV2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator,Manager")]
+       // [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,FirstName,LastName,Address,City,State,Zip,Email,Phone,MenuId")] Customers customers)
         {
             if (id != customers.ID)
@@ -168,7 +174,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Customers/Delete/5
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Customers == null)
@@ -190,7 +196,7 @@ namespace CodingCafeV2.Controllers
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator,Manager")]
+       // [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Customers == null)

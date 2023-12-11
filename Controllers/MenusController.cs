@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CodingCafeV2.Controllers
 {
+    [Authorize]
     public class MenusController : Controller
     {
         private readonly CafeContext _context;
@@ -25,8 +26,9 @@ namespace CodingCafeV2.Controllers
         //    var menuContext = _context.Menu;
         //    return View(await menuContext.ToListAsync()); ;
         //}
+        //[Authorize(Roles = "Administrator,Manager,User")]
 
-  
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
@@ -64,6 +66,10 @@ namespace CodingCafeV2.Controllers
 
 
         // GET: Menus/Details/5
+        //[Authorize(Roles = "Administrator,Manager,User")]
+
+
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Menu == null)
@@ -82,7 +88,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Menus/Create
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public IActionResult Create()
         {
             return View();
@@ -105,7 +111,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Menus/Edit/5
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Menu == null)
@@ -126,7 +132,7 @@ namespace CodingCafeV2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("MenuId,Item,Description")] Menu menu)
         {
             if (id != menu.MenuId)
@@ -158,7 +164,7 @@ namespace CodingCafeV2.Controllers
         }
 
         // GET: Menus/Delete/5
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Menu == null)
@@ -179,7 +185,7 @@ namespace CodingCafeV2.Controllers
         // POST: Menus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator,Manager")]
+      //  [Authorize(Roles = "Administrator,Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Menu == null)

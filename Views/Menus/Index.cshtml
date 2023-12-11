@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class ="p-4 mb-3 shadow" style="background-color:cornflowerblue;border-radius:40px;">Our Menu</h1>
+<h1 class="p-4 mb-3 shadow" style="background-color:cornflowerblue;border-radius:40px;">Our Menu <i class="fa-solid fa-mug-hot"></i></h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -15,9 +15,10 @@
 <form asp-action="Index" method="get">
     <div class="form-actions no-color">
         <p>
-            <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-            <a asp-action="Index">Back To Full List</a>
+            
+            <input type="text" name="searchString" value="@ViewData["currentFilter"]" placeholder="Search by Item Name" />
+            <input type="submit" value="Search" />
+           
         </p>
     </div>
 </form>
